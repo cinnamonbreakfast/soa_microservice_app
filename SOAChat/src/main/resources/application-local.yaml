@@ -1,0 +1,15 @@
+rabbit-mq:
+  queue: soachat-queue
+  exchange: soachat-exchange
+  routing-key: soachat-key
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;CASE_INSENSITIVE_IDENTIFIERS=TRUE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  liquibase:
+    enabled: false
