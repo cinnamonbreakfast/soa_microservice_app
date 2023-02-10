@@ -1,0 +1,31 @@
+<!-- ./client/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TS Client</title>
+  </head>
+  <body>
+    <button onClick="sendMsg()">Hit Me</button>
+
+    <script
+      src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const socket = io("http://localhost:8070", {
+        extraHeaders: {
+          Authorization:
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzUxMiJ9.eyJpc3MiOiJTaXRlLUxpY2l0YXRpaSIsImFkbWluIjpmYWxzZSwiaWQiOiJhYjg3M2Y5Ny0xODA2LTQyZGEtYmUyOC05ZWZjYjkyN2FmYzAiLCJleHAiOjE2NzU5MzEwODYsImVtYWlsIjoiYW5kcmVpQHRlc3QuY29tIn0.AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO2F-hk0g3iBkBJNlY-DJVkMcpMkW4cIaGkGf-OxikXXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIIocogwaITGwBNnuWBj2c8Lg3KN5e3M5vymRfROs7v8",
+        },
+      });
+
+      function sendMsg() {
+        socket.emit("handshake", "HELLO WORLD");
+      }
+    </script>
+  </body>
+</html>
